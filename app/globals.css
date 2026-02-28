@@ -1,26 +1,65 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  background-color: #101828;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee-rtll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-rtl 25s linear infinite;
+}
+.marqueee {
+  animation: marquee-rtll 15s linear 1 forwards;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #101828;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2fa2d4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d7fa8;
+}
+@media (max-width: 720px) {
+  .Search {
+    display: none;
+  }
+  .HeaderActions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+}
+@media (max-width: 387px){
+
+  .HeaderIcon{
+    font-size: 15px;
+  }
+  .HeaderName{
+    font-size: 12px;
+  }
 }
