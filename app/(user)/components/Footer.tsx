@@ -63,7 +63,7 @@ const Footer = () => {
 
       <div className="mt-5 w-[75%] ">
         <div className="flex flex-row  flex-wrap text-[#6d7784] gap-5  w-full justify-between items-center">
-          <div>© 2026 algpry store. جميع الحقوق محفوظة.</div>
+          <div>© 2026 DTAL store. جميع الحقوق محفوظة.</div>
           <div className="flex flex-row gap-3 text-2xl">
             <i
               className="fa-brands fa-cc-visa hover:text-[#1a1f71]"
