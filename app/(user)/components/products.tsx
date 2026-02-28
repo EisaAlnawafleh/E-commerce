@@ -102,7 +102,7 @@ const Products = () => {
           className="mt-10   w-full opacity-50 rounded-2xl opacity-60 hover:opacity-100 transition duration-300 hover:scale-105 "
         />
       </div>
-      <div className="text-white flex flex-col justify-center items-center mt-20 px-5 ">
+      <div className="text-white flex flex-col justify-center text-center items-center mt-20 px-5 ">
         <div className="text-[24px] pb-5">أفضل الهواتف</div>
         <div className="text-[#6d7784] ">
           تصفح مجموعتنا المختارة بعناية من أفضل المنتجات والأكثر طلباً
