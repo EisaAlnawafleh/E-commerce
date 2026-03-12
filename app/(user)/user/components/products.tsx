@@ -1,0 +1,481 @@
+"use client";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import Link from "next/link";
+const Products = () => {
+  return (
+    <div className=" flex justify-center items-center flex-col">
+      <div className="text-white font-bold text-[24px]  mt-20 ">
+        وصل حديثاً <span className="text-[#2fa2d4] text-4xl">.</span>
+      </div>
+      <div className="text-[#b23ac8] text-center">
+        تصفح أحدث المنتجات المضافة لمتجرنا
+      </div>
+
+      <div className=" mt-10 text-white flex text-center items-center justify-center gap-5 px-2 marqueee flex-wrap ">
+        <motion.div
+          whileHover={{ y: -10, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 250, damping: 18 }}
+          data-aos="fade-up"
+          data-aos-duration="900"
+          data-aos-easing="ease-out"
+          className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+        >
+          <div>
+            <img
+              src="data:image/jpeg;base64,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"
+              alt=""
+              className="rounded-t-2xl"
+            />
+          </div>
+          <div className="mt-5">Apple iPhone 13 Pro Max </div>
+          <div className="text-green-700 mt-5">JD 799.00</div>
+          <motion.div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+            أضف للسلة
+          </motion.div>
+        </motion.div>
+        <motion.div
+          whileHover={{ y: -10, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 250, damping: 18 }}
+          data-aos="fade-up"
+          data-aos-duration="900"
+          data-aos-easing="ease-out"
+          className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5 "
+        >
+          <div>
+            <img
+              src="https://eshop.orange.jo/images/thumbs/0011414_apple-iphone-17-256gb_220.jpeg"
+              alt=""
+              className="rounded-t-2xl"
+            />
+          </div>
+          <div className="mt-5">Apple iPhone 17 - 256GB</div>
+          <div className="text-green-700 mt-5">JD 799</div>
+          <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+            أضف للسلة
+          </div>
+        </motion.div>
+
+        <motion.div
+          whileHover={{ y: -10, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 250, damping: 18 }}
+          data-aos="fade-up"
+          data-aos-duration="900"
+          data-aos-easing="ease-out"
+          className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+        >
+          <div>
+            <img
+              src="https://eshop.orange.jo/images/thumbs/0010605_honor-x8c8gb256gb_220.jpeg"
+              alt=""
+              className="rounded-t-2xl"
+            />
+          </div>
+          <div className="mt-5">Honor X8C,8GB,512GB</div>
+          <div className="text-green-700 mt-5">JD 169.00</div>
+          <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+            أضف للسلة
+          </div>
+        </motion.div>
+        <motion.div
+          whileHover={{ y: -10, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 250, damping: 18 }}
+          data-aos="fade-up"
+          data-aos-duration="900"
+          data-aos-easing="ease-out"
+          className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+        >
+          <div>
+            <img
+              src="https://eshop.orange.jo/images/thumbs/0011392_samsung-galaxy-z-flip-7256gb12gb_220.jpeg"
+              alt=""
+              className="rounded-t-2xl"
+            />
+          </div>
+          <div className="mt-5">Samsung Galaxy Z Flip </div>
+          <div className="text-green-700 mt-5">JD 799.00</div>
+          <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+            أضف للسلة
+          </div>
+        </motion.div>
+        <motion.div
+          whileHover={{ y: -10, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 250, damping: 18 }}
+          data-aos="fade-up"
+          data-aos-duration="900"
+          data-aos-easing="ease-out"
+          className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+        >
+          <div>
+            <img
+              src="https://eshop.orange.jo/images/thumbs/0011763_apple-iphone-air-512gb_220.jpeg"
+              alt=""
+              className="rounded-t-2xl"
+            />
+          </div>
+          <div className="mt-5">Apple iPhone Air - 512GB</div>
+          <div className="text-green-700 mt-5">JD 1199.00</div>
+          <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+            أضف للسلة
+          </div>
+        </motion.div>
+        <motion.div
+          whileHover={{ y: -10, scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 250, damping: 18 }}
+          data-aos="fade-up"
+          data-aos-duration="900"
+          data-aos-easing="ease-out"
+          className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+        >
+          <div>
+            <img
+              src="https://eshop.orange.jo/images/thumbs/0011427_apple-iphone-17-pro-max-256gb_220.jpeg"
+              alt=""
+              className="rounded-t-2xl"
+            />
+          </div>
+          <div className="mt-5">Apple iPhone 17 Pro </div>
+          <div className="text-green-700 mt-5">JD 1299.00</div>
+          <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+            أضف للسلة
+          </div>
+        </motion.div>
+      </div>
+      <div
+        className=" flex justify-center items-center px-2"
+        data-aos="fade-up"
+        data-aos-duration="900"
+        data-aos-easing="ease-out"
+      >
+        <img
+          src="https://i.fbcd.co/products/original/iphone-12-mockup-ipad-mockup-and-imac-mockup-for-web-design-social-media-mockup-and-ui-and-ux-mockups-f84f4f7b8cc0929e0b492a702d2cbee854e2fad300634e5352cd874d43491a2e.jpg"
+          alt=""
+          className="mt-10   w-full  rounded-2xl opacity-60  "
+        />
+      </div>
+      <div className="text-white flex flex-col justify-center text-center items-center mt-20 px-5 ">
+        <div data-aos="fade-right" className="text-[24px] pb-5">
+          أفضل الهواتف
+        </div>
+        <div data-aos="fade-right" className="text-[#b23ac8] ">
+          تصفح مجموعتنا المختارة بعناية من أفضل المنتجات والأكثر طلباً
+        </div>
+        <div className=" mt-10 text-white flex text-center justify-center flex-wrap px=2 gap-5">
+          <motion.div
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 250, damping: 18 }}
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-easing="ease-out"
+            className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+          >
+            <div>
+              <img
+                src="https://eshop.orange.jo/images/thumbs/0011427_apple-iphone-17-pro-max-256gb_220.jpeg"
+                alt=""
+                className="rounded-t-2xl"
+              />
+            </div>
+            <div className="mt-5">Apple iPhone 16 Pro Max (1TB)</div>
+            <div className="text-green-700 mt-5">JD 1599.00</div>
+            <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+              أضف للسلة
+            </div>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 250, damping: 18 }}
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-easing="ease-out"
+            className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+          >
+            <div>
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+                className="rounded-t-2xl"
+              />
+            </div>
+            <div className="mt-5">Apple iPhone 16 Pro (512GB)</div>
+            <div className="text-green-700 mt-5">JD 1399.00</div>
+            <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+              أضف للسلة
+            </div>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 250, damping: 18 }}
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-easing="ease-out"
+            className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+          >
+            <div>
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+                className="rounded-t-2xl"
+              />
+            </div>
+            <div className="mt-5">Apple iPhone 15 Pro (512GB)</div>
+            <div className="text-green-700 mt-5">JD 1199.00</div>
+            <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+              أضف للسلة
+            </div>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 250, damping: 18 }}
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-easing="ease-out"
+            className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+          >
+            <div>
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+                className="rounded-t-2xl"
+              />
+            </div>
+            <div className="mt-5">Apple iPhone 14 Pro Max </div>
+            <div className="text-green-700 mt-5">JD 1099.00</div>
+            <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+              أضف للسلة
+            </div>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 250, damping: 18 }}
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-easing="ease-out"
+            className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+          >
+            <div>
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+                className="rounded-t-2xl"
+              />
+            </div>
+            <div className="mt-5">Apple iPhone 13 Pro Max </div>
+            <div className="text-green-700 mt-5">JD 799.00</div>
+            <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+              أضف للسلة
+            </div>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 250, damping: 18 }}
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-easing="ease-out"
+            className="bg-[#391658] max-w-55 max-h-100 rounded-2xl pb-5"
+          >
+            <div>
+              <img
+                src="data:image/jpeg;base64,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"
+                alt=""
+                className="rounded-t-2xl"
+              />
+            </div>
+            <div className="mt-5">Apple iPhone 12 Pro (128GB)</div>
+            <div className="text-green-700 mt-5">JD 599.00</div>
+            <div className=" rounded-2xl h-10 w-50 flex ml-2 justify-center items-center mt-8 hover:opacity-85 cursor-pointer transition duration-300 bg-[#b23ac8] border-0">
+              أضف للسلة
+            </div>
+          </motion.div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-10 justify-center items-center text-white my-10">
+        <div data-aos="fade-up" className="font-bold">
+          الأقسام{" "}
+        </div>
+        <div className="flex flex-row flex-wrap gap-5 justify-center items-center">
+          <Link href="/user/products">
+            <motion.div
+              data-aos="fade-up"
+              whileHover={{ y: -10, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 250, damping: 18 }}
+              className="relative w-[320px] h-[230px] rounded-[28px] overflow-hidden cursor-pointer shadow-2xl"
+            >
+              <img
+                src="/image/iphone.png"
+                alt="iPhone"
+                className="absolute w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+              <div className="absolute bottom-5 right-5 text-white text-right">
+                <div className="text-[24px] font-bold drop-shadow-lg">
+                  قسم الايفون
+                </div>
+
+                <div className="text-[13px] text-white/80 mt-1">
+                  أحدث أجهزة Apple
+                </div>
+
+                <div className="mt-3">
+                  <div className="bg-[#b23ac8]/20 backdrop-blur-md px-4 py-2 rounded-full text-[13px] hover:bg-[#b23ac8]/30 transition">
+                    اضغط هنا
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full"></div>
+            </motion.div>
+          </Link>
+          <Link href="/user/products">
+            <motion.div
+              data-aos="fade-up"
+              whileHover={{ y: -10, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 250, damping: 18 }}
+              className="relative w-[320px] h-[230px] rounded-[28px] overflow-hidden cursor-pointer shadow-2xl"
+            >
+              <img
+                src="/image/samsung.png"
+                alt="iPhone"
+                className="absolute w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+              <div className="absolute bottom-5 right-5 text-white text-right">
+                <div className="text-[24px] font-bold drop-shadow-lg">
+                  قسم سامسونج
+                </div>
+
+                <div className="text-[13px] text-white/80 mt-1">
+                  أحدث أجهزة samsung
+                </div>
+
+                <div className="mt-3">
+                  <div className="bg-[#b23ac8]/20 backdrop-blur-md px-4 py-2 rounded-full text-[13px] hover:bg-[#b23ac8]/30 transition">
+                    اضغط هنا
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full"></div>
+            </motion.div>
+          </Link>
+          <Link href="/user/products">
+            <motion.div
+              data-aos="fade-up"
+              whileHover={{ y: -10, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 250, damping: 18 }}
+              className="relative w-[320px] h-[230px] rounded-[28px] overflow-hidden cursor-pointer shadow-2xl"
+            >
+              <img
+                src="/image/huawei.png"
+                alt="iPhone"
+                className="absolute w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+              <div className="absolute bottom-5 right-5 text-white text-right">
+                <div className="text-[24px] font-bold drop-shadow-lg">
+                  قسم الهواوي
+                </div>
+
+                <div className="text-[13px] text-white/80 mt-1">
+                  أحدث أجهزة huawei
+                </div>
+
+                <div className="mt-3">
+                  <div className="bg-[#b23ac8]/20 backdrop-blur-md px-4 py-2 rounded-full text-[13px] hover:bg-[#b23ac8]/30 transition">
+                    اضغط هنا
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full"></div>
+            </motion.div>
+          </Link>
+          <Link href="/user/products">
+            <motion.div
+              data-aos="fade-up"
+              whileHover={{ y: -10, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 250, damping: 18 }}
+              className="relative w-[320px] h-[230px] rounded-[28px] overflow-hidden cursor-pointer shadow-2xl"
+            >
+              <img
+                src="/image/honor.png"
+                alt="iPhone"
+                className="absolute w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+              <div className="absolute bottom-5 right-5 text-white text-right">
+                <div className="text-[24px] font-bold drop-shadow-lg">
+                  قسم الهونر
+                </div>
+
+                <div className="text-[13px] text-white/80 mt-1">
+                  أحدث أجهزة honor
+                </div>
+
+                <div className="mt-3">
+                  <div className="bg-[#b23ac8]/20 backdrop-blur-md px-4 py-2 rounded-full text-[13px] hover:bg-[#b23ac8]/30 transition">
+                    اضغط هنا
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full"></div>
+            </motion.div>
+          </Link>
+          <Link href="/user/products">
+            <motion.div
+              data-aos="fade-up"
+              whileHover={{ y: -10, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 250, damping: 18 }}
+              className="relative w-[320px] h-[230px] rounded-[28px] overflow-hidden cursor-pointer shadow-2xl"
+            >
+              <img
+                src="/image/tablets.png"
+                alt="iPhone"
+                className="absolute w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+              <div className="absolute bottom-5 right-5 text-white text-right">
+                <div className="text-[24px] font-bold drop-shadow-lg">
+                  قسم التابليت
+                </div>
+
+                <div className="text-[13px] text-white/80 mt-1">
+                  أحدث أجهزة tablets
+                </div>
+
+                <div className="mt-3">
+                  <div className="bg-[#b23ac8]/20 backdrop-blur-md px-4 py-2 rounded-full text-[13px] hover:bg-[#b23ac8]/30 transition">
+                    اضغط هنا
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 blur-3xl rounded-full"></div>
+            </motion.div>
+          </Link>
+        </div>
+      </div>
+      <div className="w-full h-1 mt-5 bg-[#b23ac8]"></div>
+    </div>
+  );
+};
+
+export default Products;

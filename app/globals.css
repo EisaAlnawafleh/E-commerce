@@ -1,6 +1,6 @@
 @import "tailwindcss";
 body {
-  background-color: #101828;
+  background: linear-gradient(135deg, #0b0f3a 0%, #5a1b6e 100%);
 }
 @keyframes marquee-rtl {
   0% {
@@ -10,24 +10,12 @@ body {
     transform: translateX(-100%);
   }
 }
-@keyframes marquee-rtll {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
 
 .marquee {
   display: flex;
   white-space: nowrap;
   animation: marquee-rtl 25s linear infinite;
 }
-.marqueee {
-  animation: marquee-rtll 15s linear 1 forwards;
-}
-
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -37,12 +25,38 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2fa2d4;
+  background: #6b2577;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #1d7fa8;
+}
+
+@media (max-width: 925px) {
+  .Search {
+    max-width: 400px;
+  }
+}
+@media (max-width: 850px) {
+  .Search {
+    max-width: 360px;
+  }
+}
+@media (max-width: 810px) {
+  .Search {
+    max-width: 320px;
+  }
+}
+@media (max-width: 765px) {
+  .Search {
+    max-width: 280px;
+  }
+}
+@media (max-width: 674px) {
+  .Wrong {
+    font-size: 12px;
+  }
 }
 @media (max-width: 720px) {
   .Search {
@@ -52,14 +66,13 @@ body {
     display: flex;
     justify-content: space-between;
   }
-  
 }
-@media (max-width: 387px){
-
-  .HeaderIcon{
+@media (max-width: 387px) {
+  .HeaderIcon {
     font-size: 15px;
   }
-  .HeaderName{
+  .HeaderName {
     font-size: 12px;
   }
 }
+/* --- */
